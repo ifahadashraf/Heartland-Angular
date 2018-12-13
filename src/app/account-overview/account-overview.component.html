@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h4>02039-E3F79E7F2745</h4>
+    <p>Account Number</p>
+  </div>
+  <div class="col-sm-9 text-right">
+    <button type="submit" class="btn btn-default" style="margin-right: 10px">Setup A New Plan</button>
+    <button type="submit" class="btn btn-primary" routerLink="/securityQuestion">Make A Payment</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs nav-fill" role="tablist">
+      <li class="nav-item"  role="presentation">
+        <a [ngClass]="(activeTab == 0) ? 'nav-link active' : 'nav-link' " role="tab" data-toggle="tab" (click)="switchAccountOverviewTabs(0)">Account Summary</a>
+      </li>
+      <li class="nav-item">
+        <a [ngClass]="(activeTab == 1) ? 'nav-link active' : 'nav-link' " role="tab" data-toggle="tab" (click)="switchAccountOverviewTabs(1)">Payment Plan</a>
+      </li>
+      <li class="nav-item">
+        <a [ngClass]="(activeTab == 2) ? 'nav-link active' : 'nav-link' " role="tab" data-toggle="tab" (click)="switchAccountOverviewTabs(2)">Transaction History</a>
+      </li>
+      <li class="nav-item">
+        <a [ngClass]="(activeTab == 3) ? 'nav-link active' : 'nav-link' " role="tab" data-toggle="tab" (click)="switchAccountOverviewTabs(3)">Payment History</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="tab-content">
+      <div *ngIf="activeTab == 0" role="tabpanel" [ngClass]="(activeTab == 0) ? 'tab-pane active' : 'tab-pane' "><app-account-summary></app-account-summary></div>
+      <div *ngIf="activeTab == 1" role="tabpanel" [ngClass]="(activeTab == 1) ? 'tab-pane active' : 'tab-pane' " ><app-payment-plan></app-payment-plan></div>
+      <div *ngIf="activeTab == 2" role="tabpanel" [ngClass]="(activeTab == 2) ? 'tab-pane active' : 'tab-pane' " ><app-transaction-history></app-transaction-history></div>
+      <div *ngIf="activeTab == 3" role="tabpanel" [ngClass]="(activeTab == 3) ? 'tab-pane active' : 'tab-pane' " ><app-documents></app-documents></div>
+    </div>
+  </div>
+</div>

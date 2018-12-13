@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row text-center">
+      <p>Your Connected Accounts</p>
+      <p>CLICK ON THE TILE TO ACCESS YOUR DATA.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 align-content-center" *ngFor="let obj of [{'name':'University of Alabama','key':'RCCBC1-D7586498D4E'},{'name':'University of Columbia','key':'00013-346374D5FDE1'},{'name':'University of Stanford','key':'00013-87B1889B2336'}]">
+        <br>
+        <div class="card">
+          <img class="card-img-top" src="../../assets/images/alabama_bg.jpg">
+          <div class="card-body">
+            <h5 class="card-title">{{obj.name}}</h5>
+            <a href="/accountOverview">{{obj.key}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
