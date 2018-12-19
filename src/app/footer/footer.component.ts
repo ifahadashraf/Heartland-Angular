@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  color = 'red';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getColor() {
+    return this.color;
   }
 
 }
