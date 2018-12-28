@@ -4,19 +4,22 @@ import {Route, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SecurityQuestionComponent } from './security-question/security-question.component';
-import { MainComponent } from './main/main.component';
-import { AccountOverviewComponent } from './account-overview/account-overview.component';
-import { AccountSummaryComponent } from './account-overview/account-summary/account-summary.component';
-import { PaymentPlanComponent } from './account-overview/payment-plan/payment-plan.component';
-import { TransactionHistoryComponent } from './account-overview/transaction-history/transaction-history.component';
-import { PaymentHistoryComponent } from './account-overview/payment-history/payment-history.component';
-import { DocumentsComponent } from './account-overview/documents/documents.component';
-import { GuestPaymentComponent } from './guest-payment/guest-payment.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SecurityQuestionComponent } from './components/security-question/security-question.component';
+import { MainComponent } from './components/main/main.component';
+import { AccountOverviewComponent } from './components/account-overview/account-overview.component';
+import { AccountSummaryComponent } from './components/account-overview/account-summary/account-summary.component';
+import { PaymentPlanComponent } from './components/account-overview/payment-plan/payment-plan.component';
+import { TransactionHistoryComponent } from './components/account-overview/transaction-history/transaction-history.component';
+import { PaymentHistoryComponent } from './components/account-overview/payment-history/payment-history.component';
+import { DocumentsComponent } from './components/account-overview/documents/documents.component';
+import { GuestPaymentComponent } from './components/guest-payment/guest-payment.component';
+import { HeartlandCardsComponent } from './components/main/heartland-cards/heartland-cards.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const appRoutes: Route[] = [
   {path: '', component: HomeComponent},
@@ -41,12 +44,15 @@ const appRoutes: Route[] = [
     TransactionHistoryComponent,
     PaymentHistoryComponent,
     DocumentsComponent,
-    GuestPaymentComponent
+    GuestPaymentComponent,
+    HeartlandCardsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
