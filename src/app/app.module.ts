@@ -20,6 +20,7 @@ import { GuestPaymentComponent } from './components/guest-payment/guest-payment.
 import { HeartlandCardsComponent } from './components/main/heartland-cards/heartland-cards.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'node_modules/ngx-loading';
 
 const appRoutes: Route[] = [
   {path: '', component: HomeComponent},
@@ -52,7 +53,15 @@ const appRoutes: Route[] = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.chasingDots,
+      backdropBackgroundColour: 'rgba(0,0,0,0.5)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff',
+      secondaryColour: '#ffffff',
+      fullScreenBackdrop: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

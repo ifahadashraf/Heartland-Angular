@@ -8,6 +8,9 @@
       <label for="pwd">Password</label>
       <input type="password" class="form-control" id="pwd" placeholder="Password" #password>
     </div>
+    <div class="err-div text-center" *ngIf="err">
+      <label>Invalid username/password</label>
+    </div>
     <div class="form-group text-center">
       <button type="submit" class="btn btn-default" style="margin-right: 10px">Cancel</button>
       <button type="submit" class="btn btn-primary" (click)="signIn(userName,password)">Continue</button>

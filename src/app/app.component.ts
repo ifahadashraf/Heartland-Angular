@@ -9,4 +9,7 @@ import {ConstantsService} from './services/constants/constants.service';
 })
 export class AppComponent {
   title = 'Angular7';
+
+  constructor(public wa: ConstantsService) {
+  }
 }
