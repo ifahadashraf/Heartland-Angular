@@ -29,7 +29,8 @@ const appRoutes: Route[] = [
   {path: 'securityQuestion', component: SecurityQuestionComponent},
   {path: 'main', component: MainComponent},
   {path: 'accountOverview', component: AccountOverviewComponent},
-  {path: 'guestPayment', component: GuestPaymentComponent}
+  {path: 'guestPayment', component: GuestPaymentComponent},
+  {path: 'makePayment', component: MakePaymentComponent}
 ];
 
 @NgModule({
