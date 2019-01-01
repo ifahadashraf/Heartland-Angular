@@ -21,13 +21,15 @@ import { HeartlandCardsComponent } from './components/main/heartland-cards/heart
 import {HttpClientModule} from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'node_modules/ngx-loading';
+import { MakePaymentComponent } from './components/make-payment/make-payment.component';
 
 const appRoutes: Route[] = [
   {path: '', component: HomeComponent},
   {path: 'signIn', component: SignInComponent},
   {path: 'securityQuestion', component: SecurityQuestionComponent},
   {path: 'main', component: MainComponent},
-  {path: 'accountOverview', component: AccountOverviewComponent}
+  {path: 'accountOverview', component: AccountOverviewComponent},
+  {path: 'guestPayment', component: GuestPaymentComponent}
 ];
 
 @NgModule({
@@ -47,7 +49,8 @@ const appRoutes: Route[] = [
     DocumentsComponent,
     GuestPaymentComponent,
     HeartlandCardsComponent,
-    LoaderComponent
+    LoaderComponent,
+    MakePaymentComponent
   ],
   imports: [
     BrowserModule,
