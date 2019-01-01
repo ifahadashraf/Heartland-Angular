@@ -34,7 +34,19 @@ export class CommonService implements OnInit {
       '&browser=' + browser +
       '&mobile=' + mobile +
       '&access=' + access;
+    console.log(localStorage.getItem('Authorization'));
     return this.http.get(this.wa.validateSecurityAnswer + params,
+      {headers : {'Authorization' : localStorage.getItem('Authorization')} });
+  }
+
+  getConnections(userName) {
+    return this.http.get(this.wa.getConnections + '?username=' + userName,
+      {headers : {'Authorization' : localStorage.getItem('Authorization')} });
+
+  }
+
+  getUserAccounts(userName) {
+    return this.http.get(this.wa.userAccounts + '?username=' + userName,
       {headers : {'Authorization' : localStorage.getItem('Authorization')} });
   }
 }

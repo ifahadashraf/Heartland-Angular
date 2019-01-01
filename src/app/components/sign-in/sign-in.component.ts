@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {CommonService} from '../../services/common/common.service';
 import {ConstantsService} from '../../services/constants/constants.service';
 import {Router} from '@angular/router';
-import { LocalStorage } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,8 +12,7 @@ export class SignInComponent implements OnInit {
 
   err = false;
 
-  constructor(private signinService: CommonService, private wa: ConstantsService, private router: Router,
-              private localStorage: LocalStorage) { }
+  constructor(private signinService: CommonService, private wa: ConstantsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -30,8 +28,8 @@ export class SignInComponent implements OnInit {
         const indicia = { access_token: response.access_token, refresh_token: response.refresh_token };
         // @ts-ignore
         localStorage.setItem('Authorization', 'bearer ' + response.access_token);
-        this.localStorage.setItemSubscribe('user', username.value);
-        this.localStorage.setItemSubscribe('indicia', indicia);
+        localStorage.setItem('user', username.value);
+        // this.localStorage.setItemSubscribe('indicia', indicia);
 
         this.router.navigate(['/securityQuestion']);
 
