@@ -54,7 +54,7 @@ export class MainComponent implements OnInit {
           // @ts-ignore
           this.data.profileAccounts = response.profileAccounts;
           console.log(response);
-
+          // @ts-ignore
           this.service.getFeatureSetsByProfile(response.id)
             .subscribe(
               (resp) => {
