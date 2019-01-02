@@ -31,6 +31,7 @@ export class SignInComponent implements OnInit {
         localStorage.setItem('user', username.value);
         // this.localStorage.setItemSubscribe('indicia', indicia);
 
+        this.wa.isLoggedIn = true;
         this.router.navigate(['/securityQuestion']);
 
       },

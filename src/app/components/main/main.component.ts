@@ -14,7 +14,11 @@ export class MainComponent implements OnInit {
 
   user: string;
 
-  accountInfos: AccountInfo;
+  public data = {
+    connectedAccountsInfo: null,
+    profileAccounts: null,
+    featureSetsByProfile: null
+  };
 
   heartlandInfo: HeartlandInfo[] = [
     {schoolName: 'University of Alabama',       heartlandKey: '02039-E3F79E7F2745'},
@@ -34,7 +38,8 @@ export class MainComponent implements OnInit {
         (response) => {
           this.wa.shouldLoad = false;
           // @ts-ignore
-          const connections = plainToClass(AccountInfo, response.connectedAccountInfo);
+          this.data.connectedAccountsInfo = response;
+          console.log(response);
         }
         ,
         (err) => {
@@ -46,7 +51,44 @@ export class MainComponent implements OnInit {
       .subscribe(
         (response) => {
           this.wa.shouldLoad = false;
+          // @ts-ignore
+          this.data.profileAccounts = response.profileAccounts;
           console.log(response);
+
+          this.service.getFeatureSetsByProfile(response.id)
+            .subscribe(
+              (resp) => {
+                this.data.featureSetsByProfile = resp;
+                if (this.data.featureSetsByProfile.servicingSelectLOAN) {
+                  this.data.featureSetsByProfile.servicingSelectLOAN.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.servicingSelectLOAN.scheme);
+                }
+                if (this.data.featureSetsByProfile.taxSelect) {
+                  this.data.featureSetsByProfile.taxSelect.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.taxSelect.scheme);
+                }
+                if (this.data.featureSetsByProfile.refundSelect) {
+                  this.data.featureSetsByProfile.refundSelect.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.refundSelect.scheme);
+                }
+                if (this.data.featureSetsByProfile.tuitionSelect) {
+                  this.data.featureSetsByProfile.tuitionSelect.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.tuitionSelect.scheme);
+                }
+                if (this.data.featureSetsByProfile.servicingSelectSAL) {
+                  this.data.featureSetsByProfile.servicingSelectSAL.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.servicingSelectSAL.scheme);
+                }
+                if (this.data.featureSetsByProfile.promissoryNotes) {
+                  this.data.featureSetsByProfile.promissoryNotes.scheme
+                    = JSON.parse(this.data.featureSetsByProfile.promissoryNotes.scheme);
+                }
+              },
+              (err) => {
+
+              }
+            );
+
         },
         (err) => {
           this.wa.shouldLoad = false;

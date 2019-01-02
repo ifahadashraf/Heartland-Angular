@@ -49,4 +49,9 @@ export class CommonService implements OnInit {
     return this.http.get(this.wa.userAccounts + '?username=' + userName,
       {headers : {'Authorization' : localStorage.getItem('Authorization')} });
   }
+
+  getFeatureSetsByProfile(id) {
+    return this.http.get(this.wa.getFeatureSetsByProfile + '?profileId=' + id,
+      {headers : {'Authorization' : localStorage.getItem('Authorization')} });
+  }
 }
